@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Register</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/globalcss/style.css">
+</head>
+<body>
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Easy Car Rental Pvt.</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Car List
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">General Cars</a></li>
+                        <li><a class="dropdown-item" href="#">Premium Cars</a></li>
+                        <li><a class="dropdown-item" href="#">Luxury Cars</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Sign In</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--Customer Registration Form-->
+<section class="form-container mt-5">
+    <form id="formCustomer" class="container form-control mt-3 h-100">
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="txtCustId" class="form-label">Customer ID</label>
+                    <input type="text" class="form-control w-50" id="txtCustId" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="txtFirstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control w-50" id="txtFirstName" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="txtLastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control w-50" id="txtLastName">
+                </div>
+                <div class="mb-3">
+                    <label for="txtContactNumber" class="form-label">Contact Number</label>
+                    <input type="text" class="form-control w-50" id="txtContactNumber">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="txtAddress" class="form-label">Address</label>
+                    <input type="text" class="form-control w-50" id="txtAddress">
+                </div>
+                <div class="mb-3">
+                    <label for="txtNicNumber" class="form-label">NIC Number</label>
+                    <input type="text" class="form-control w-50" id="txtNicNumber">
+                </div>
+                <div class="mb-3">
+                    <label for="txtDrivingLicense" class="form-label">Driving License</label>
+                    <input type="text" class="form-control w-50" id="txtDrivingLicense">
+                </div>
+            </div>
+        </div>
+        <button id="btnSaveCustomer" type="button" class="btn btn-primary">Next</button>
+    </form>
+</section>
+
+
+
+<!--Footer Section-->
+
+<script src="../assets/jquery-3.6.0.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script>
+
+
+    $("#btnSaveCustomer").click(function (){
+
+        let custID = $("#txtCustId").val();
+        let firstName = $("#txtFirstName").val();
+        let lastName = $("#txtLastName").val();
+        let contactNumber = $("#txtContactNumber").val();
+        let address = $("#txtAddress").val();
+        let nicNumber = $("#txtNicNumber").val();
+        let drivingLicense = $("#txtDrivingLicense").val();
+
+        $.ajax({
+            method:'POST',
+            url:'http://localhost:8080/Easy_Car_Rental_PVT_BackEnd_war_exploded/easycarrentalpvt/customer',
+            async:true,
+            contentType:'application/json',
+            data:JSON.stringify({
+                customerID:custID,
+                firstName:firstName,
+                lasTName:lastName,
+                nicNumber:nicNumber,
+                driveLicenseNumber:drivingLicense,
+                address:address,
+                contactNumber:contactNumber
+            }),
+            success:function (data){
+                console.log(data);
+                console.log(data.message);
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

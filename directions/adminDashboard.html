@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin DashBoard</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/globalcss/style.css">
+</head>
+<body>
+<!--content-->
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-1 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">DashBoard</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li>
+                        <a id="dashBoardSection" href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                    </li>
+                    <li>
+                        <a id="rentOrderSection" href="#" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
+                    </li>
+                    <li>
+                        <a id="vehicleSection" href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Vehicles</span></a>
+                    </li>
+                    <li>
+                        <a id="maintainsVehicleSection" href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Maintains</span></a>
+                    </li>
+                    <li>
+                        <a id="customerBtn" href="#" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+                    </li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+        <div class="col py-3">
+            <div id="content">
+                <div class="container">
+                        <ul class="nav navbar-light bg-dark mb-1 justify-content-end rounded">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#">Active</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#">Link</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#">Sign Out</a>
+                            </li>
+                        </ul>
+                </div>
+                <div class="container-fluid">
+                    <div id="cardSection" class="row justify-content-center">
+                        <div class="col-md-3 col-xl-2">
+                            <div class="card bg-c-blue order-card">
+                                <div class="card-block">
+                                    <h6 class="m-b-20">Total Customers</h6>
+                                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
+                                    <!--              <p class="m-b-0 text-white">Completed Orders<span class="f-right">351</span></p>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xl-2">
+                            <div class="card bg-c-green order-card">
+                                <div class="card-block">
+                                    <h6 class="m-b-20">Total Vehicles</h6>
+                                    <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>486</span></h2>
+                                    <!--              <p class="m-b-0 text-white">Completed Orders<span class="f-right">351</span></p>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xl-2">
+                            <div class="card bg-c-yellow order-card">
+                                <div class="card-block">
+                                    <h6 class="m-b-20">Orders Received</h6>
+                                    <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h2>
+                                    <!--              <p class="m-b-0 text-white">Completed Orders<span class="f-right">351</span></p>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xl-2">
+                            <div class="card bg-c-pink order-card">
+                                <div class="card-block">
+                                    <h6 class="m-b-20">Total Drivers</h6>
+                                    <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
+                                    <!--              <p class="m-b-0 text-white">Completed Orders<span class="f-right">351</span></p>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--    Order Content-->
+                    <div id="rentOrderPage">
+                        <h2>Rent Orders Page</h2>
+                        <table class="table table-bordered px-2">
+                            <thead>
+                            <th scope="col">Rent ID</th>
+                            <th scope="col">Customer ID</th>
+                            <th scope="col">Vehicle ID</th>
+                            <th scope="col">Driver ID</th>
+                            <th scope="col">PickUp Date</th>
+                            <th scope="col">PickOff Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Reason</th>
+                            <th scope="col">Total Fee</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Activity Status</th>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--        Customer Content-->
+                    <div id="customerContent">
+                        <div class="container-fluid">
+                            <h2>Register Customers Page</h2>
+                            <div class="customer-content-wrapping">
+                                <div>
+
+                                </div>
+                                <div>
+                                    <table class="table table-bordered px-2">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Customer ID</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Last</th>
+                                            <th scope="col">Nic Number</th>
+                                            <th scope="col">Driver License</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Contact Number</th>
+                                            <th scope="col">Nic Image</th>
+                                            <th scope="col">Driver License Image</th>
+                                            <th scope="col">Activity</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Vehicle Page-->
+                    <div id="vehiclePage">
+                        <div class="container-fluid">
+                            <h2>Vehicle Details Page</h2>
+                            <div class="row">
+                                <div class="d-flex flex-column">
+                                    <div class="row g-3">
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="Rent ID" aria-label="First name">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="PickUp Date" aria-label="Last name">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="PickOff Date" aria-label="Last name">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="Status" aria-label="Last name">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="reason" aria-label="Last name">
+                                        </div>
+                                        <div class="row g-3">
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Date" aria-label="First name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Customer ID" aria-label="Last name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Vehicle Name" aria-label="Last name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Driver ID" aria-label="Last name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Pay Type" aria-label="Last name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Vehicle ID</th>
+                                                <th scope="col">Brand</th>
+                                                <th scope="col">Model</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Extra Fee</th>
+                                                <th scope="col">Register Number</th>
+                                                <th scope="col">Passenger Number</th>
+                                                <th scope="col">TransmissionType</th>
+                                                <th scope="col">Full Type</th>
+                                                <th scope="col">Daily Rent</th>
+                                                <th scope="col">Monthly Rent</th>
+                                                <th scope="col">Daily KM</th>
+                                                <th scope="col">Monthly KM</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Image</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Vehicle Maintains Page-->
+                    <div id="vehicleMaintainPage">
+                        <div class="container-fluid">
+                            <h2>Vehicle Maintains Page</h2>
+                            <div class="row">
+                                <div class="d-flex flex-column">
+                                    <div class="row g-3">
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="Rent ID" aria-label="First name">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="PickUp Date" aria-label="Last name">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="PickOff Date" aria-label="Last name">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="Status" aria-label="Last name">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="reason" aria-label="Last name">
+                                        </div>
+                                        <div class="row g-3">
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Date" aria-label="First name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Customer ID" aria-label="Last name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Vehicle Name" aria-label="Last name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Driver ID" aria-label="Last name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Pay Type" aria-label="Last name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">MainTaine ID</th>
+                                                <th scope="col">Vehicle ID</th>
+                                                <th scope="col">Vehicle Name</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Reason</th>
+                                                <th scope="col">MainTaine Date</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="../assets/jquery-3.6.0.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script>
+
+    // $("#cardSection").hide();
+    $("#rentOrderPage").hide();
+    $("#customerContent").hide();
+    $("#vehiclePage").hide();
+    $("#vehicleMaintainPage").hide();
+
+
+    $("#dashBoardSection").click(function () {
+        $("#cardSection").show();
+        $("#rentOrderPage").hide();
+        $("#customerContent").hide();
+        $("#vehiclePage").hide();
+        $("#vehicleMaintainPage").hide();
+    });
+
+    $("#rentOrderSection").click(function () {
+        $("#rentOrderPage").show();
+        $("#vehiclePage").hide();
+        $("#cardSection").hide();
+        $("#customerContent").hide();
+        $("#vehicleMaintainPage").hide();
+    });
+
+    $("#vehicleSection").click(function () {
+        $("#vehiclePage").show();
+        $("#rentOrderPage").hide();
+        $("#cardSection").hide();
+        $("#customerContent").hide();
+        $("#vehicleMaintainPage").hide();
+    });
+
+    $("#maintainsVehicleSection").click(function () {
+        $("#vehicleMaintainPage").show();
+        $("#vehiclePage").hide();
+        $("#rentOrderPage").hide();
+        $("#cardSection").hide();
+        $("#customerContent").hide();
+    });
+
+    $("#customerBtn").click(function () {
+        $("#customerContent").show();
+        $("#cardSection").hide();
+        $("#rentOrderPage").hide();
+        $("#vehiclePage").hide();
+        $("#vehicleMaintainPage").hide();
+    });
+
+
+
+
+</script>
+</body>
+</html>
