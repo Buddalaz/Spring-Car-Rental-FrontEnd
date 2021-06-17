@@ -5,6 +5,7 @@
     <title>Easy Car Rental Pvt.</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/globalcss/style.css">
+    <link rel="stylesheet" href="assets/lib/bootstrap-datepicker/bootstrap-datepicker.css">
 </head>
 <body>
 <!--Navigation Bar-->
@@ -585,64 +586,67 @@
 
 <!--Rent Order And Payment-->
 <div id="orderPage">
-    <div class="container-fluid">
-        <div class="row">
+    <div class="container-fluid mt-5 mb-2 border border-dark">
+        <div class="row mt-1 mb-3">
             <div class="d-flex flex-column">
                 <div class="row g-3">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Rent ID" aria-label="First name">
+                        <input id="txtRentId" type="text" class="form-control" placeholder="Rent ID" aria-label="First name">
+                    </div>
+                    <div class="col dates">
+                        <input id="user1" type="text" class="form-control" placeholder="PickUp Date" aria-label="Last name">
+                    </div>
+                    <div class="col dates">
+                        <input id="user2" type="text" class="form-control" placeholder="PickOff Date" aria-label="Last name">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="PickUp Date" aria-label="Last name">
+                        <input id="txtStatus" type="text" class="form-control" placeholder="Status" aria-label="Last name">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="PickOff Date" aria-label="Last name">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Status" aria-label="Last name">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="reason" aria-label="Last name">
+                        <input id="txtReason" type="text" class="form-control" placeholder="reason" aria-label="Last name">
                     </div>
                     <div class="row g-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Date" aria-label="First name">
+                            <input id="txtDate" type="text" class="form-control" placeholder="Date" aria-label="First name">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Customer ID" aria-label="Last name">
+                            <input id="txtCustId" type="text" class="form-control" placeholder="Customer ID" aria-label="Last name">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Vehicle Name" aria-label="Last name">
+                            <input id="txtVehicleId" type="text" class="form-control" placeholder="Vehicle Name" aria-label="Last name">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Driver ID" aria-label="Last name">
+                            <input id="txtDriveId" type="text" class="form-control" placeholder="Driver ID" aria-label="Last name">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Pay Type" aria-label="Last name">
+                            <input id="txtTotalFee" type="text" class="form-control" placeholder="Pay Type" aria-label="Last name">
                         </div>
                     </div>
                 </div>
-                <div>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">Rent ID</th>
-                            <th scope="col">PickUp Date</th>
-                            <th scope="col">PickOff Date</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Vehicle ID</th>
-                            <th scope="col">Driver ID</th>
-                            <th scope="col">Total Fee</th>
-                            <th scope="col">Pay Type</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
+                <div class="mb-3">
+                    <button id="btnSaveOrder" type="button" class="btn btn-success mt-3">Save</button>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container-fluid">
+        <table class="table table-bordered">
+            <thead class="bg-dark text-white">
+            <tr>
+                <th scope="col">Rent ID</th>
+                <th scope="col">PickUp Date</th>
+                <th scope="col">PickOff Date</th>
+                <th scope="col">Date</th>
+                <th scope="col">Vehicle ID</th>
+                <th scope="col">Driver ID</th>
+                <th scope="col">Total Fee</th>
+                <th scope="col">Pay Type</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -656,6 +660,8 @@
 
 <script src="assets/jquery-3.6.0.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="controller/indexController.js"></script>
 <script>
 
     $("#generalCars").hide();
@@ -663,6 +669,19 @@
     $("#luxuryCars").hide();
     $("#orderPage").hide();
 
+    $(function () {
+        $('.dates #user1').datepicker({
+            'format': 'yyyy-mm-dd',
+            'autoclose': true
+        });
+    });
+
+    $(function () {
+        $('.dates #user2').datepicker({
+            'format': 'yyyy-mm-dd',
+            'autoclose': true
+        });
+    });
 
     $("#genCars").click(function () {
         $("#generalCars").show();

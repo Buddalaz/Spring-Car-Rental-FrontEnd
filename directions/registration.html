@@ -43,14 +43,11 @@
 </nav>
 
 <!--Customer Registration Form-->
-<section class="form-container mt-5">
+<section id="regContent" class="form-container mt-5">
     <form id="formCustomer" class="container form-control mt-3 h-100">
+        <h2 class="text-center"><hr class="w-25 d-inline-block"> Registration <hr class="w-25 d-inline-block"></h2>
         <div class="row">
             <div class="col-6">
-                <div class="mb-3">
-                    <label for="txtCustId" class="form-label">Customer ID</label>
-                    <input type="text" class="form-control w-50" id="txtCustId" aria-describedby="emailHelp">
-                </div>
                 <div class="mb-3">
                     <label for="txtFirstName" class="form-label">First Name</label>
                     <input type="text" class="form-control w-50" id="txtFirstName" aria-describedby="emailHelp">
@@ -79,50 +76,32 @@
                 </div>
             </div>
         </div>
-        <button id="btnSaveCustomer" type="button" class="btn btn-primary">Next</button>
+        <div class="row m-lg-2 justify-content-center">
+            <button id="btnSaveCustomer" type="button" class="btn btn-primary">Next</button>
+        </div>
     </form>
 </section>
 
+<!--Customer Registration Upload Images Form-->
+<div id="imageContent" class="container mt-3">
+    <div class="mb-3">
+        <label for="formFile1" class="form-label">NIC Photo</label>
+        <input class="form-control" type="file" id="formFile1">
+    </div>
+    <div class="mb-3">
+        <label for="formFile2" class="form-label">Driving License</label>
+        <input class="form-control" type="file" id="formFile2">
+    </div>
+    <div class="row m-lg-2 justify-content-center">
+        <button id="btnSaveCustomerImg" type="button" class="btn btn-primary">Submit</button>
+    </div>
+</div>
 
 
 <!--Footer Section-->
 
 <script src="../assets/jquery-3.6.0.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
-<script>
-
-
-    $("#btnSaveCustomer").click(function (){
-
-        let custID = $("#txtCustId").val();
-        let firstName = $("#txtFirstName").val();
-        let lastName = $("#txtLastName").val();
-        let contactNumber = $("#txtContactNumber").val();
-        let address = $("#txtAddress").val();
-        let nicNumber = $("#txtNicNumber").val();
-        let drivingLicense = $("#txtDrivingLicense").val();
-
-        $.ajax({
-            method:'POST',
-            url:'http://localhost:8080/Easy_Car_Rental_PVT_BackEnd_war_exploded/easycarrentalpvt/customer',
-            async:true,
-            contentType:'application/json',
-            data:JSON.stringify({
-                customerID:custID,
-                firstName:firstName,
-                lasTName:lastName,
-                nicNumber:nicNumber,
-                driveLicenseNumber:drivingLicense,
-                address:address,
-                contactNumber:contactNumber
-            }),
-            success:function (data){
-                console.log(data);
-                console.log(data.message);
-            }
-        });
-    });
-
-</script>
+<script src="../controller/registrationController.js"></script>
 </body>
 </html>

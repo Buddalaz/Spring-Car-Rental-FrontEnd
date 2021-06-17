@@ -5,6 +5,7 @@
     <title>Admin DashBoard</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/globalcss/style.css">
+    <link rel="stylesheet" href="../assets/lib/bootstrap-datepicker/bootstrap-datepicker.css">
 </head>
 <body>
 <!--content-->
@@ -17,19 +18,23 @@
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li>
-                        <a id="dashBoardSection" href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                        <a id="dashBoardSection" href="#submenu1" data-bs-toggle="collapse"
+                           class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                        </a>
                     </li>
                     <li>
                         <a id="rentOrderSection" href="#" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
                     </li>
                     <li>
-                        <a id="vehicleSection" href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                        <a id="vehicleSection" href="#submenu2" data-bs-toggle="collapse"
+                           class="nav-link px-0 align-middle ">
                             <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Vehicles</span></a>
                     </li>
                     <li>
-                        <a id="maintainsVehicleSection" href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                        <a id="maintainsVehicleSection" href="#submenu3" data-bs-toggle="collapse"
+                           class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Maintains</span></a>
                     </li>
                     <li>
@@ -43,17 +48,17 @@
         <div class="col py-3">
             <div id="content">
                 <div class="container">
-                        <ul class="nav navbar-light bg-dark mb-1 justify-content-end rounded">
-                            <li class="nav-item">
-                                <a class="nav-link text-white" aria-current="page" href="#">Active</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="#">Link</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="#">Sign Out</a>
-                            </li>
-                        </ul>
+                    <ul class="nav navbar-light bg-dark mb-1 shadow p-1 mb-5 justify-content-end rounded">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" href="#">Active</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Sign Out</a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="container-fluid">
                     <div id="cardSection" class="row justify-content-center">
@@ -98,9 +103,11 @@
                         </div>
                     </div>
 
-                    <!--    Order Content-->
+                    <div></div>
+
+                    <!--Order Content-->
                     <div id="rentOrderPage">
-                        <h2>Rent Orders Page</h2>
+                        <h2 class="text-center mt-3 mb-3">Rent Orders Page</h2>
                         <table class="table table-bordered px-2">
                             <thead>
                             <th scope="col">Rent ID</th>
@@ -118,19 +125,35 @@
                             <tbody>
                             </tbody>
                         </table>
+
+                        <div>
+                            <h2 class="text-center mt-3 mb-3">Rent Orders Payments Page</h2>
+                            <table class="table table-bordered px-2">
+                                <thead>
+                                <th scope="col">Rent Payment ID</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Fee</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Order ID</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
-                    <!--        Customer Content-->
+                    <!--Customer Content-->
                     <div id="customerContent">
                         <div class="container-fluid">
-                            <h2>Register Customers Page</h2>
+                            <h2 class="text-center mt-3 mb-3">Register Customers Page</h2>
                             <div class="customer-content-wrapping">
                                 <div>
-
+                                    <button id="btnCustomerLoad" type="button" class="btn btn-primary mb-3">Primary
+                                    </button>
                                 </div>
                                 <div>
                                     <table class="table table-bordered px-2">
-                                        <thead>
+                                        <thead class="bg-dark text-white">
                                         <tr>
                                             <th scope="col">Customer ID</th>
                                             <th scope="col">First Name</th>
@@ -139,12 +162,12 @@
                                             <th scope="col">Driver License</th>
                                             <th scope="col">Address</th>
                                             <th scope="col">Contact Number</th>
-                                            <th scope="col">Nic Image</th>
-                                            <th scope="col">Driver License Image</th>
-                                            <th scope="col">Activity</th>
+                                            <th scope="col">Activate</th>
+                                            <!--                                            <th scope="col">Nic Image</th>-->
+                                            <!--                                            <th scope="col">Driver License Image</th>-->
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="customerTableBody">
                                         </tbody>
                                     </table>
                                 </div>
@@ -155,46 +178,89 @@
                     <!--Vehicle Page-->
                     <div id="vehiclePage">
                         <div class="container-fluid">
-                            <h2>Vehicle Details Page</h2>
+                            <h2 class="text-center mt-3 mb-3">Vehicle Details Page</h2>
                             <div class="row">
                                 <div class="d-flex flex-column">
-                                    <div class="row g-3">
+                                    <div class="row g-3 border border-dark rounded-3">
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="Rent ID" aria-label="First name">
+                                            <input type="text" class="form-control" placeholder="Vehicle ID"
+                                                   aria-label="First name">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="PickUp Date" aria-label="Last name">
+                                            <input type="text" class="form-control" placeholder="Brand"
+                                                   aria-label="Last name">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="PickOff Date" aria-label="Last name">
+                                            <input type="text" class="form-control" placeholder="Model"
+                                                   aria-label="Last name">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="Status" aria-label="Last name">
+                                            <input type="text" class="form-control" placeholder="Type"
+                                                   aria-label="Last name">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="reason" aria-label="Last name">
+                                            <input type="text" class="form-control" placeholder="Extra Fee"
+                                                   aria-label="Last name">
                                         </div>
                                         <div class="row g-3">
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="Date" aria-label="First name">
+                                                <input type="text" class="form-control" placeholder="Register Number"
+                                                       aria-label="First name">
                                             </div>
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="Customer ID" aria-label="Last name">
+                                                <input type="text" class="form-control" placeholder="Passenger Number"
+                                                       aria-label="Last name">
                                             </div>
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="Vehicle Name" aria-label="Last name">
+                                                <input type="text" class="form-control" placeholder="Transmission Type"
+                                                       aria-label="Last name">
                                             </div>
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="Driver ID" aria-label="Last name">
+                                                <div class="input-group">
+                                                    <select class="form-select" id="inputGroupSelect01"
+                                                            aria-label="Example select with button addon">
+                                                        <option selected>Full Type</option>
+                                                        <option value="1">Petrol</option>
+                                                        <option value="2">Decal</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="Pay Type" aria-label="Last name">
+                                                <div class="col">
+                                                    <input type="text" class="form-control" placeholder="Daily Rent"
+                                                           aria-label="Last name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row g-3">
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Monthly Rent"
+                                                       aria-label="First name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Daily KM"
+                                                       aria-label="Last name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Monthly KM"
+                                                       aria-label="Last name">
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="mb-3">
+                                        <button id="btnSaveVehicle" type="button" class="btn btn-success mt-3">Save
+                                        </button>
+                                        <button id="btnUpdateVehicle" type="button" class="btn btn-secondary mt-3">
+                                            Update
+                                        </button>
+                                        <button id="btnDeleteVehicle" type="button" class="btn btn-danger mt-3">Delete
+                                        </button>
+                                        <button id="btnVehicleLoad" type="button" class="btn btn-primary mt-3">Load
+                                        </button>
+                                    </div>
                                     <div>
-                                        <table class="table">
-                                            <thead>
+                                        <table class="table table-bordered">
+                                            <thead class="bg-dark text-white">
                                             <tr>
                                                 <th scope="col">Vehicle ID</th>
                                                 <th scope="col">Brand</th>
@@ -209,13 +275,13 @@
                                                 <th scope="col">Monthly Rent</th>
                                                 <th scope="col">Daily KM</th>
                                                 <th scope="col">Monthly KM</th>
-                                                <th scope="col">Image</th>
-                                                <th scope="col">Image</th>
-                                                <th scope="col">Image</th>
-                                                <th scope="col">Image</th>
+                                                <!--                                                <th scope="col">Image</th>-->
+                                                <!--                                                <th scope="col">Image</th>-->
+                                                <!--                                                <th scope="col">Image</th>-->
+                                                <!--                                                <th scope="col">Image</th>-->
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="vehicleTableBody">
 
                                             </tbody>
                                         </table>
@@ -228,46 +294,45 @@
                     <!--Vehicle Maintains Page-->
                     <div id="vehicleMaintainPage">
                         <div class="container-fluid">
-                            <h2>Vehicle Maintains Page</h2>
+                            <h2 class="text-center mt-3 mb-3">Vehicle Maintains Page</h2>
                             <div class="row">
                                 <div class="d-flex flex-column">
                                     <div class="row g-3">
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="Rent ID" aria-label="First name">
+                                            <input type="text" class="form-control" placeholder="Maintain ID"
+                                                   aria-label="First name">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="PickUp Date" aria-label="Last name">
+                                            <input type="text" class="form-control" placeholder="Status"
+                                                   aria-label="Last name">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="PickOff Date" aria-label="Last name">
+                                            <input type="text" class="form-control" placeholder="Reason"
+                                                   aria-label="Last name">
+                                        </div>
+                                        <div class="col dates">
+                                            <input id="user1" type="text" autocomplete="off" class="form-control"
+                                                   placeholder="yyyy-mm-dd"
+                                                   aria-label="Last name">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="Status" aria-label="Last name">
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control" placeholder="reason" aria-label="Last name">
-                                        </div>
-                                        <div class="row g-3">
-                                            <div class="col">
-                                                <input type="text" class="form-control" placeholder="Date" aria-label="First name">
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" class="form-control" placeholder="Customer ID" aria-label="Last name">
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" class="form-control" placeholder="Vehicle Name" aria-label="Last name">
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" class="form-control" placeholder="Driver ID" aria-label="Last name">
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" class="form-control" placeholder="Pay Type" aria-label="Last name">
-                                            </div>
+                                            <input type="text" class="form-control" placeholder="Vehicle iD"
+                                                   aria-label="Last name">
                                         </div>
                                     </div>
+                                    <div class="mb-3">
+                                        <button id="btnSaveMain" type="button" class="btn btn-success mt-3">Save
+                                        </button>
+                                        <button id="btnUpdateMain" type="button" class="btn btn-secondary mt-3">Update
+                                        </button>
+                                        <button id="btnDeleteMain" type="button" class="btn btn-danger mt-3">Delete
+                                        </button>
+                                        <button id="btnMainLoad" type="button" class="btn btn-primary mt-3">Load
+                                        </button>
+                                    </div>
                                     <div>
-                                        <table class="table">
-                                            <thead>
+                                        <table class="table table-bordered ">
+                                            <thead class="bg-dark text-white">
                                             <tr>
                                                 <th scope="col">MainTaine ID</th>
                                                 <th scope="col">Vehicle ID</th>
@@ -277,7 +342,7 @@
                                                 <th scope="col">MainTaine Date</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="maintainstBody">
 
                                             </tbody>
                                         </table>
@@ -294,9 +359,10 @@
 </div>
 
 
-
 <script src="../assets/jquery-3.6.0.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/lib/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="../controller/adminController.js"></script>
 <script>
 
     // $("#cardSection").hide();
@@ -304,6 +370,14 @@
     $("#customerContent").hide();
     $("#vehiclePage").hide();
     $("#vehicleMaintainPage").hide();
+
+
+    $(function () {
+        $('.dates #user1').datepicker({
+            'format': 'yyyy-mm-dd',
+            'autoclose': true
+        });
+    });
 
 
     $("#dashBoardSection").click(function () {
@@ -345,8 +419,6 @@
         $("#vehiclePage").hide();
         $("#vehicleMaintainPage").hide();
     });
-
-
 
 
 </script>
