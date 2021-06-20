@@ -8,6 +8,7 @@ function hideRegContent(){
     $("#regContent").hide();
 }
 
+//save customer details
 $("#btnSaveCustomer").click(function (){
 
     let custID = $("#txtCustId").val();
@@ -40,4 +41,9 @@ $("#btnSaveCustomer").click(function (){
     showImageContent();
 
     hideRegContent();
+});
+
+//save nic and driving license images
+$("#btnSaveCustomerImg").click(function (){
+
 });

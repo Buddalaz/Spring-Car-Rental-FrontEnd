@@ -1,30 +1,30 @@
-$(document).ready(function() {
-        $.when($.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", {
-                tags: "moon",
-                tagmode: "any",
-                format: "json"
-            }),
-            $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", {
-                tags: "bird",
-                tagmode: "any",
-                format: "json"
-            })).then(function (picArray1, picArray2) {
-            $.each(picArray1[0].items, function (i, item) {
-                var img = $("<img/>");
-                img.attr('width', '200px');
-                img.attr('height', '150px');
-                img.attr("src", item.media.m).appendTo("#myImages");
-                if (i == 1) return false;
-            })
-            $.each(picArray2[0].items, function (i, item) {
-                var img = $("<img/>");
-                img.attr('width', '200px');
-                img.attr('height', '150px');
-                img.attr("src", item.media.m).appendTo("#myImages");
-                if (i == 1) return false;
-            })
-        });
-});
+// $(document).ready(function() {
+//         $.when($.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", {
+//                 tags: "moon",
+//                 tagmode: "any",
+//                 format: "json"
+//             }),
+//             $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", {
+//                 tags: "bird",
+//                 tagmode: "any",
+//                 format: "json"
+//             })).then(function (picArray1, picArray2) {
+//             $.each(picArray1[0].items, function (i, item) {
+//                 var img = $("<img/>");
+//                 img.attr('width', '200px');
+//                 img.attr('height', '150px');
+//                 img.attr("src", item.media.m).appendTo("#myImages");
+//                 if (i == 1) return false;
+//             })
+//             $.each(picArray2[0].items, function (i, item) {
+//                 var img = $("<img/>");
+//                 img.attr('width', '200px');
+//                 img.attr('height', '150px');
+//                 img.attr("src", item.media.m).appendTo("#myImages");
+//                 if (i == 1) return false;
+//             })
+//         });
+// });
 
 // load customer details to customer table
 $("#btnCustomerLoad").click(function (){

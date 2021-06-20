@@ -66,7 +66,7 @@
                             <div class="card bg-c-blue order-card">
                                 <div class="card-block">
                                     <h6 class="m-b-20">Total Customers</h6>
-                                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
+                                    <h2 class="text-right"><img class="fa f-left" src="../assets/img/icons/outline_person_black_24dp.png"><span>486</span></h2>
                                     <!--              <p class="m-b-0 text-white">Completed Orders<span class="f-right">351</span></p>-->
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                             <div class="card bg-c-green order-card">
                                 <div class="card-block">
                                     <h6 class="m-b-20">Total Vehicles</h6>
-                                    <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>486</span></h2>
+                                    <h2 class="text-right"><img class="fa f-left" src="../assets/img/icons/outline_directions_car_black_24dp.png"><span>486</span></h2>
                                     <!--              <p class="m-b-0 text-white">Completed Orders<span class="f-right">351</span></p>-->
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                             <div class="card bg-c-yellow order-card">
                                 <div class="card-block">
                                     <h6 class="m-b-20">Orders Received</h6>
-                                    <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h2>
+                                    <h2 class="text-right"><img class="fa f-left px-2" src="../assets/img/icons/icons8-purchase-order-32.png" height="40px"><span>486</span></h2>
                                     <!--              <p class="m-b-0 text-white">Completed Orders<span class="f-right">351</span></p>-->
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                             <div class="card bg-c-pink order-card">
                                 <div class="card-block">
                                     <h6 class="m-b-20">Total Drivers</h6>
-                                    <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
+                                    <h2 class="text-right"><img class="fa f-left px-2" src="../assets/img/icons/icons8-bad-taxi-driver-60.png" height="40px"><span>486</span></h2>
                                     <!--              <p class="m-b-0 text-white">Completed Orders<span class="f-right">351</span></p>-->
                                 </div>
                             </div>
@@ -108,6 +108,10 @@
                     <!--Order Content-->
                     <div id="rentOrderPage">
                         <h2 class="text-center mt-3 mb-3">Rent Orders Page</h2>
+                        <div>
+                            <button id="btnRentOrderLoad" type="button" class="btn btn-primary mb-3">Primary
+                            </button>
+                        </div>
                         <table class="table table-bordered px-2">
                             <thead>
                             <th scope="col">Rent ID</th>
@@ -127,18 +131,67 @@
                         </table>
 
                         <div>
-                            <h2 class="text-center mt-3 mb-3">Rent Orders Payments Page</h2>
-                            <table class="table table-bordered px-2">
-                                <thead>
-                                <th scope="col">Rent Payment ID</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Fee</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Order ID</th>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
+                            <div class="container-fluid">
+                                <h2 class="text-center mt-3 mb-3">Rent Orders Payments Page</h2>
+                                <div class="row">
+                                    <div class="d-flex flex-column">
+                                        <div class="row g-3">
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Payment ID"
+                                                       aria-label="First name">
+                                            </div>
+                                            <div class="col">
+                                                <input id="txtPaymentDate" type="date" autocomplete="off" class="form-control"
+                                                       placeholder="yyyy-mm-dd"
+                                                       aria-label="Last name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Fee"
+                                                       aria-label="Last name">
+                                            </div>
+                                            <div class="col">
+                                                <div class="input-group">
+                                                    <select class="form-select" id="inputGroupSelect02"
+                                                            aria-label="Example select with button addon">
+                                                        <option selected>Type</option>
+                                                        <option value="1">Cash</option>
+                                                        <option value="2">Card</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Order ID"
+                                                       aria-label="Last name">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button id="btnSavePayment" type="button" class="btn btn-success mt-3">Save
+                                            </button>
+                                            <button id="btnUpdatePayment" type="button" class="btn btn-secondary mt-3">Update
+                                            </button>
+                                            <button id="btnDeletePayment" type="button" class="btn btn-danger mt-3">Delete
+                                            </button>
+                                            <button id="btnSearchPayment" type="button" class="btn btn-info mt-3">Search
+                                            </button>
+                                            <button id="btnLoadPayment" type="button" class="btn btn-primary mt-3">Load
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <table class="table table-bordered px-2">
+                                                <thead>
+                                                <th scope="col">Rent Payment ID</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Fee</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Order ID</th>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -310,8 +363,8 @@
                                             <input type="text" class="form-control" placeholder="Reason"
                                                    aria-label="Last name">
                                         </div>
-                                        <div class="col dates">
-                                            <input id="user1" type="text" autocomplete="off" class="form-control"
+                                        <div class="col">
+                                            <input id="user1" type="date" autocomplete="off" class="form-control"
                                                    placeholder="yyyy-mm-dd"
                                                    aria-label="Last name">
                                         </div>
@@ -370,14 +423,6 @@
     $("#customerContent").hide();
     $("#vehiclePage").hide();
     $("#vehicleMaintainPage").hide();
-
-
-    $(function () {
-        $('.dates #user1').datepicker({
-            'format': 'yyyy-mm-dd',
-            'autoclose': true
-        });
-    });
 
 
     $("#dashBoardSection").click(function () {

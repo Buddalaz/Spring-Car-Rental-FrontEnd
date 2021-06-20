@@ -1,4 +1,14 @@
+//set the date when the page load to order content
+$(document).ready(function () {
+    var now = new Date();
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear() + "-" + (month) + "-" + (day);
+    $('#txtDate').val(today);
+});
 
+
+//save customer order
 $("#btnSaveOrder").click(function () {
 
     let rentid = $("#txtRentId").val();
@@ -9,8 +19,8 @@ $("#btnSaveOrder").click(function () {
     let rea = $("#txtReason").val();
     let newrea = parseFloat(rea);
 
-    let totalfee =  $("#txtTotalFee").val();
-    let newtotalfee =  parseFloat(totalfee);
+    let totalfee = $("#txtTotalFee").val();
+    let newtotalfee = parseFloat(totalfee);
 
     let dateoftodate = $("#txtDate").val();
     let custid = $("#txtCustId").val();
@@ -26,13 +36,13 @@ $("#btnSaveOrder").click(function () {
         totalFee: newtotalfee,
         date: dateoftodate,
         customer: {
-            customerID:custid
+            customerID: custid
         },
         vehicle: {
-            vehicleID:vehiid
+            vehicleID: vehiid
         },
         driveId: {
-            driveId:driid
+            driveId: driid
         }
     }
 
@@ -41,16 +51,54 @@ $("#btnSaveOrder").click(function () {
     // console.log(JSON.parse(rentDetails));
 
     $.ajax({
-        method:'POST',
-        url:'http://localhost:8080/carrent/api/v1/rentOrder',
-        async:true,
-        contentType:'application/json',
-        data:JSON.stringify(rentDetails),
-        success:function (response){
+        method: 'POST',
+        url: 'http://localhost:8080/carrent/api/v1/rentOrder',
+        async: true,
+        contentType: 'application/json',
+        data: JSON.stringify(rentDetails),
+        success: function (response) {
             console.log(response);
             if (response.message === 'success'){
                 //popup the success message
-
+                $( function() {
+                    $( "#dialog" ).dialog({
+                        resizable: false,
+                        height: "auto",
+                        width: 400,
+                        modal: true,
+                        buttons: {
+                            "Ok": function() {
+                                $( this ).dialog( "close" );
+                                //clear the input field's
+                                $("#txtRentId").val("");
+                                $("#user1").val("");
+                                $("#user2").val("");
+                                $("#txtStatus").val("");
+                                $("#txtReason").val("");
+                                $("#txtTotalFee").val("");
+                                $("#txtDate").val("");
+                                $("#txtCustId").val("");
+                                $("#txtVehicleId").val("");
+                                $("#txtDriveId").val("");
+                            }
+                        }
+                    });
+                } );
+            }else {
+                $("#errorMsg").append(response.data);
+                $( function() {
+                    $( "#dialog2" ).dialog({
+                        resizable: false,
+                        height: "auto",
+                        width: 400,
+                        modal: true,
+                        buttons: {
+                            "Ok": function() {
+                                $( this ).dialog( "close" );
+                            }
+                        }
+                    });
+                } );
             }
         }
     });
