@@ -19,25 +19,27 @@ $("#btnSaveCustomer").click(function (){
     let nicNumber = $("#txtNicNumber").val();
     let drivingLicense = $("#txtDrivingLicense").val();
 
-    // $.ajax({
-    //     method:'POST',
-    //     url:'http://localhost:8080/Easy_Car_Rental_PVT_BackEnd_war_exploded/easycarrentalpvt/customer',
-    //     async:true,
-    //     contentType:'application/json',
-    //     data:JSON.stringify({
-    //         customerID:custID,
-    //         firstName:firstName,
-    //         lasTName:lastName,
-    //         nicNumber:nicNumber,
-    //         driveLicenseNumber:drivingLicense,
-    //         address:address,
-    //         contactNumber:contactNumber
-    //     }),
-    //     success:function (data){
-    //         console.log(data);
-    //         console.log(data.message);
-    //     }
-    // });
+    console.log();
+
+    $.ajax({
+        method:'POST',
+        url:'http://localhost:8080/carrent/api/v1/customer',
+        async:true,
+        contentType:'application/json',
+        data:JSON.stringify({
+            customerID:custID,
+            firstName:firstName,
+            lastName:lastName,
+            nicNumber:nicNumber,
+            driveLicenseNumber:drivingLicense,
+            address:address,
+            contactNumber:contactNumber
+        }),
+        success:function (data){
+            console.log(data);
+            console.log(data.message);
+        }
+    });
     showImageContent();
 
     hideRegContent();
