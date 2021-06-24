@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Customer</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/globalcss/style.css">
+</head>
+<body>
+
+<!--NavBar Section-->
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Welcome Customer</span>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Order</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white px-2" href="#" id="navbarDropdown" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    Settings
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a id="profilePageContent" class="dropdown-item" href="#">Profile</a></li>
+                    <li><a id="preCars" class="dropdown-item" href="#">Sign Out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!--Rent Order And Payment-->
+<div id="orderPage">
+    <div class="container-fluid mt-5 mb-2 border border-dark">
+        <h1 class="text-center">Place Your Order</h1>
+        <div class="row mt-1 mb-3">
+            <div class="d-flex flex-column">
+                <div class="row g-3">
+                    <div class="col">
+                        <input id="txtRentId" type="text" class="form-control" placeholder="Rent ID"
+                               aria-label="First name">
+                    </div>
+                    <div class="col">
+                        <input id="user1" type="date" class="form-control" placeholder="PickUp Date"
+                               aria-label="Last name">
+                    </div>
+                    <div class="col">
+                        <input id="user2" type="date" class="form-control" placeholder="PickOff Date"
+                               aria-label="Last name">
+                    </div>
+                    <div class="col">
+                        <input id="txtStatus" type="text" class="form-control" placeholder="Status"
+                               aria-label="Last name">
+                    </div>
+                    <div class="col">
+                        <input id="txtReason" type="text" class="form-control" placeholder="reason"
+                               aria-label="Last name">
+                    </div>
+                    <div class="row g-3">
+                        <div class="col">
+                            <input id="txtDate" type="date" class="form-control" placeholder="Date"
+                                   aria-label="First name">
+                        </div>
+                        <div class="col">
+                            <input id="txtCustId" type="text" class="form-control" placeholder="Customer ID"
+                                   aria-label="Last name">
+                        </div>
+                        <div class="col">
+                            <input id="txtVehicleId" type="text" class="form-control" placeholder="Vehicle Name"
+                                   aria-label="Last name">
+                        </div>
+                        <div class="col">
+                            <input id="txtDriveId" type="text" class="form-control" placeholder="Driver ID"
+                                   aria-label="Last name">
+                        </div>
+                        <div class="col">
+                            <input id="txtTotalFee" type="text" class="form-control" placeholder="Pay Type"
+                                   aria-label="Last name">
+                            <!--                            <div class="input-group">-->
+                            <!--                                <select class="form-select" id="inputGroupSelect01"-->
+                            <!--                                        aria-label="Example select with button addon">-->
+                            <!--                                    <option selected>Full Type</option>-->
+                            <!--                                    <option value="1">Petrol</option>-->
+                            <!--                                    <option value="2">Decal</option>-->
+                            <!--                                </select>-->
+                            <!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button id="btnSaveOrder" type="button" class="btn btn-success mt-3">Save</button>
+                </div>
+                <div id="dialog" title="Order Save">
+                    <p>Your Order Is Placed SuccessFully</p>
+                </div>
+                <div id="dialog2" title="Something Went Wrong!!!">
+                    <p id="errorMsg"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <table class="table table-bordered">
+            <thead class="bg-dark text-white">
+            <tr>
+                <th scope="col">Rent ID</th>
+                <th scope="col">PickUp Date</th>
+                <th scope="col">PickOff Date</th>
+                <th scope="col">Date</th>
+                <th scope="col">Vehicle ID</th>
+                <th scope="col">Driver ID</th>
+                <th scope="col">Total Fee</th>
+                <th scope="col">Pay Type</th>
+            </tr>
+            </thead>
+            <tbody id="rentOrderTBody">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--Profile Section-->
+<div class="container border border-dark mt-3 rounded" id="profilePage">
+    <form class="row g-3">
+        <div class="col-md-4">
+            <label for="txtCustomerID" class="form-label">Customer ID</label>
+            <input type="text" class="form-control" id="txtCustomerID">
+        </div>
+        <div class="col-md-4">
+            <label for="txtCustomerFname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="txtCustomerFname">
+        </div>
+        <div class="col-md-4">
+            <label for="txtCustomerLname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="txtCustomerLname">
+        </div>
+        <div class="col-12">
+            <label for="txtAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="txtAddress">
+        </div>
+        <div class="col-12">
+            <label for="txtCustomerConNumber" class="form-label">Contact Number</label>
+            <input type="text" class="form-control" id="txtCustomerConNumber">
+        </div>
+        <div class="col-md-6">
+            <label for="txtNicNumber" class="form-label">NIC Number</label>
+            <input type="text" class="form-control" id="txtNicNumber">
+        </div>
+        <div class="col-md-6">
+            <label for="txtDriveLicNumber" class="form-label">Driving Licence</label>
+            <input type="text" class="form-control" id="txtDriveLicNumber">
+        </div>
+        <div class="col-md-6">
+            <label for="txtUserName" class="form-label">User Name</label>
+            <input type="text" class="form-control" id="txtUserName">
+        </div>
+        <div class="col-md-6">
+            <label for="txtPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="txtPassword">
+        </div>
+        <div class="col-12">
+            <label for="formFile" class="form-label">Default file input example</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-success">Update</button>
+        </div>
+    </form>
+</div>
+
+<script src="../assets/jquery-3.6.0.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/lib/jQuery-UI/jquery-ui.js"></script>
+<script>
+
+    $("#profilePage").hide();
+
+
+    $("#profilePageContent").click(function (){
+        $("#profilePage").show();
+        $("#orderPage").hide();
+    });
+
+
+
+
+</script>
+</body>
+</html>

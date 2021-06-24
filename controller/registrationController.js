@@ -9,7 +9,7 @@ function hideRegContent(){
 }
 
 //save customer details
-$("#btnSaveCustomer").click(function (){
+$("#btnRegCustomer").click(function (){
 
     let custID = $("#txtCustId").val();
     let firstName = $("#txtFirstName").val();
@@ -18,8 +18,9 @@ $("#btnSaveCustomer").click(function (){
     let address = $("#txtAddress").val();
     let nicNumber = $("#txtNicNumber").val();
     let drivingLicense = $("#txtDrivingLicense").val();
+    let userName = $("#txtUserName").val();
+    let pass = $("#txtPassword").val();
 
-    console.log();
 
     $.ajax({
         method:'POST',
@@ -33,19 +34,19 @@ $("#btnSaveCustomer").click(function (){
             nicNumber:nicNumber,
             driveLicenseNumber:drivingLicense,
             address:address,
-            contactNumber:contactNumber
+            contactNumber:contactNumber,
+            userName:userName,
+            password:pass
         }),
         success:function (data){
             console.log(data);
             console.log(data.message);
         }
     });
-    showImageContent();
 
-    hideRegContent();
 });
 
 //save nic and driving license images
-$("#btnSaveCustomerImg").click(function (){
-
-});
+// $("#btnSaveCustomerImg").click(function (){
+//
+// });

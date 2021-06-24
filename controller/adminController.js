@@ -703,6 +703,13 @@ $("#btnDriverLoad").click(function (){
 });
 
 
+$("#btnSignOut").click(function (){
+    window.location.href = '../directions/signin.html';
+});
+
+
+
+
 function clearVehicleTxtFields() {
     $("#txtVehicleBrand").val('');
     $("#txtVehicleModel").val('');
