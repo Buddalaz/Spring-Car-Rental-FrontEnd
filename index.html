@@ -22,9 +22,6 @@
                 <li class="nav-item">
                     <a id="home" class="nav-link active text-white" aria-current="page" href="#">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a id="order" class="nav-link text-white" href="#">Order</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white px-2" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +51,7 @@
 
     <!--Main Section-->
     <div class="d-xl-flex flex-column p-2 bd-highlight">
-        <div class="container-fluid bg-primary mt-1 mb-1">
+        <div class="container-fluid border border-dark mt-1 mb-1 rounded">
             <div class="row">
                 <h3 class="text-center py-3">Our Services</h3>
                 <div class="d-flex flex-row">
@@ -72,7 +69,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid bg-info mt-1 mb-1">
+        <div class="container-fluid border border-dark mt-1 mb-1 rounded">
             <div class="row">
                 <h3 class="text-center py-3">About Us</h3>
                 <div class="d-flex flex-row">
@@ -90,7 +87,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid bg-success mt-1 mb-1">
+        <div class="container-fluid border border-dark mt-1 mb-1 rounded">
             <div class="row">
                 <h3 class="text-center py-3">Contact US</h3>
                 <div class="d-flex flex-row">
@@ -581,11 +578,23 @@
 
 
 <!--Footer-->
-<div id="footer">
-    <div class="container navbar-custom">
-        <p class="footer-block text-center text-white">Easy Car Rental Pvt.</p>
+<footer class="bg-primary text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-2">
+        <p class="text-white">Address
+            No. 200, Galle
+            Road, Panadura</p>
     </div>
-</div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2021 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">Sandun Sampath</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
 
 <script src="assets/jquery-3.6.0.min.js"></script>
 <script src="assets/lib/jQuery-UI/jquery-ui.js"></script>
@@ -635,13 +644,6 @@
         $("#orderPage").hide();
     });
 
-    $("#order").click(function () {
-        $("#orderPage").show();
-        $("#mainSection").hide();
-        $("#luxuryCars").hide();
-        $("#premiumCars").hide();
-        $("#generalCars").hide();
-    });
 
 
 </script>

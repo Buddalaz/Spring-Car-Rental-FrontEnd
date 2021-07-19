@@ -117,6 +117,79 @@
                     </div>
 
                     <div></div>
+                    <div id="rentReturnPage">
+                        <div class="container-fluid">
+                            <h2 class="text-center mt-3 mb-3">Rent Return Details Page</h2>
+                            <div class="row">
+                                <div class="d-flex flex-column">
+                                    <div class="row g-3 border border-dark rounded-3 py-3">
+<!--                                        <div class="col">-->
+<!--                                            <input id="txtReturnId" type="text" class="form-control"-->
+<!--                                                   placeholder="Driver ID"-->
+<!--                                                   aria-label="First name">-->
+<!--                                        </div>-->
+                                        <div class="col">
+                                            <input id="txtReturnDate" type="date" class="form-control"
+                                                   aria-label="">
+                                        </div>
+                                        <div class="col">
+                                            <input id="txtReturnReason" type="text" class="form-control"
+                                                   placeholder="reason"
+                                                   aria-label="Last name">
+                                        </div>
+                                        <div class="col">
+                                            <input id="txtUsedKm" type="text" class="form-control"
+                                                   placeholder="User KM"
+                                                   aria-label="Last name">
+                                        </div>
+                                        <div class="col">
+                                            <input id="txtRentID" type="text" class="form-control"
+                                                   placeholder="Rent ID"
+                                                   aria-label="Last name">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button id="btnSaveReturn" type="button" class="btn btn-success mt-3">Save
+                                        </button>
+                                        <button id="btnUpdateReturn" type="button" class="btn btn-secondary mt-3">
+                                            Update
+                                        </button>
+                                        <button id="btnDeleteReturn" type="button" class="btn btn-danger mt-3">Delete
+                                        </button>
+                                        <button id="btnSearchReturn" type="button" class="btn btn-info mt-3">Search
+                                        </button>
+                                        <button id="btnDriverReturn" type="button" class="btn btn-primary mt-3">Load
+                                        </button>
+                                    </div>
+                                    <div id="saveReturnDialog" title="Success">
+                                        <p>Return Added Successfully</p>
+                                    </div>
+                                    <div id="updateReturnDialog" title="Success">
+                                        <p>Return Updated Successfully</p>
+                                    </div>
+                                    <div id="deleteReturnDialog" title="Delete">
+                                        <p>Return Delete Successfully</p>
+                                    </div>
+                                    <div>
+                                        <table class="table table-bordered">
+                                            <thead class="bg-dark text-white">
+                                            <tr>
+                                                <th scope="col">Return ID</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Reason</th>
+                                                <th scope="col">Used KM</th>
+                                                <th scope="col">Rent ID</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="returnTableBody">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!--Order Content-->
                     <div id="rentOrderPage">
@@ -218,7 +291,7 @@
                             <h2 class="text-center mt-3 mb-3">Register Customers Page</h2>
                             <div class="customer-content-wrapping">
                                 <div>
-                                    <button id="btnCustomerLoad" type="button" class="btn btn-primary mb-3">Primary
+                                    <button id="btnCustomerLoad" type="button" class="btn btn-primary mb-3">View
                                     </button>
                                 </div>
                                 <div>
@@ -232,8 +305,8 @@
                                             <th scope="col">Driver License</th>
                                             <th scope="col">Address</th>
                                             <th scope="col">Contact Number</th>
+                                            <th scope="col">Nic Image</th>
                                             <th scope="col">Activate</th>
-                                            <!--                                            <th scope="col">Nic Image</th>-->
                                             <!--                                            <th scope="col">Driver License Image</th>-->
                                         </tr>
                                         </thead>
@@ -602,6 +675,7 @@
     $("#vehiclePage").hide();
     $("#vehicleMaintainPage").hide();
     $("#driverPage").hide();
+    // $("#rentReturnPage").hide();
 
     //hide vehicle jQuery popup msg
     $("#saveDialog").hide();
@@ -618,9 +692,17 @@
     $("#updateMainDialog").hide();
     $("#deleteMainDialog").hide();
 
+    //hide rent return popup msg
+    $("#saveReturnDialog").hide();
+    $("#updateReturnDialog").hide();
+    $("#deleteReturnDialog").hide();
+
+
+
 
     $("#dashBoardSection").click(function () {
         $("#cardSection").show();
+        $("#rentReturnPage").show();
         $("#rentOrderPage").hide();
         $("#customerContent").hide();
         $("#vehiclePage").hide();
@@ -631,6 +713,7 @@
     $("#rentOrderSection").click(function () {
         $("#rentOrderPage").show();
         $("#vehiclePage").hide();
+        $("#rentReturnPage").hide();
         $("#cardSection").hide();
         $("#customerContent").hide();
         $("#vehicleMaintainPage").hide();
@@ -644,6 +727,7 @@
         $("#customerContent").hide();
         $("#vehicleMaintainPage").hide();
         $("#driverPage").hide();
+        $("#rentReturnPage").hide();
     });
 
     $("#maintainsVehicleSection").click(function () {
@@ -653,6 +737,7 @@
         $("#cardSection").hide();
         $("#customerContent").hide();
         $("#driverPage").hide();
+        $("#rentReturnPage").hide();
     });
 
     $("#customerBtn").click(function () {
@@ -662,6 +747,7 @@
         $("#vehiclePage").hide();
         $("#vehicleMaintainPage").hide();
         $("#driverPage").hide();
+        $("#rentReturnPage").hide();
     });
 
     $("#driverSection").click(function () {
@@ -671,6 +757,7 @@
         $("#rentOrderPage").hide();
         $("#vehiclePage").hide();
         $("#vehicleMaintainPage").hide();
+        $("#rentReturnPage").hide();
     });
 
 

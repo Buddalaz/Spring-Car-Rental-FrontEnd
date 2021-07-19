@@ -29,6 +29,68 @@ $(document).ready(function () {
         }));
 });
 
+
+//rent return details
+//save rent return Details
+$("#btnSaveReturn").click(function () {
+
+    $("#returnTableBody").empty();
+
+    let date = $("#txtReturnDate").val();
+    let reason = $("#txtReturnReason").val();
+    let txtUsedKM = $("#txtUsedKm").val();
+    let usedKM = parseFloat(txtUsedKM);
+    let txtRentID = $("#txtRentID").val();
+
+    var returnDetails = {
+        rDate: date,
+        usedKm: usedKM,
+        reason: reason,
+        rentorder: {
+            rentID:txtRentID
+        }
+    }
+
+    // console.log(returnDetails);
+    // console.log(JSON.stringify(returnDetails));
+
+    if (usedKM => 5000){
+        alert("This Rent Vehicle Needs To Add Maintains");
+    }
+
+    $.ajax({
+        method: 'POST',
+        url: 'http://localhost:8080/carrent/api/v1/rentReturns',
+        async: true,
+        contentType: 'application/json',
+        data: JSON.stringify(returnDetails),
+        success: function (response) {
+            console.log(response);
+            if (response.message === 'success') {
+                $("#saveReturnDialog").show();
+                //popup the success message
+                $(function () {
+                    $("#saveReturnDialog").dialog({
+                        resizable: false,
+                        height: "auto",
+                        width: 400,
+                        modal: true,
+                        buttons: {
+                            "Ok": function () {
+                                $(this).dialog("close");
+                                //clear the input field's
+                            }
+                        }
+                    });
+                });
+            }
+        }
+    });
+});
+
+
+
+
 // load customer details to customer table
 $("#btnCustomerLoad").click(function () {
 
@@ -42,9 +104,11 @@ $("#btnCustomerLoad").click(function () {
             console.log(response);
             var details = response.data;
             for (const i of details) {
+                var img = "<img src='D:\\IJSE\\SECOND_SEMESTER\\Advanced API Development\\Course_work\\Easy_Car_Rental_PVT\\Easy_Car_Rental_PVT_BackEnd\\target\\Easy_Car_Rental_PVT_BackEnd-1.0.0\\uploads\\nic\\'"+ i.filepath +"/>";
+
                 let row = `<tr><td>${i.customerID}</td><td>${i.firstName}</td><td>${i.lastName}</td><td>${i.nicNumber}</td>
 <td>${i.driveLicenseNumber}</td><td>${i.address}</td><td>${i.contactNumber}</td>
-            <td><button type="button" class="btn btn-danger">Remove</button></td></tr>`;
+            <td>${img}</td><td><button type="button" class="btn btn-danger">Remove</button></td></tr>`;
                 $("#customerTableBody").append(row);
             }
         }
@@ -320,7 +384,7 @@ $("#btnVehicleLoad").click(function () {
 
 //vehicle maintains section crud
 //save vehicle Maintains
-$("#btnSaveMain").click(function (){
+$("#btnSaveMain").click(function () {
 
     let txtMainDate = $("#txtMainDate").val();
     let txtMainRes = $("#txtMainReason").val();
@@ -328,11 +392,11 @@ $("#btnSaveMain").click(function (){
     let txtMainVehiId = $("#txtMainVehiId").val();
 
     let mainDetails = {
-        status:txtMainStat,
-        reason:txtMainRes,
-        maintainDate:txtMainDate,
-        vehicle:{
-            vehicleID:txtMainVehiId
+        status: txtMainStat,
+        reason: txtMainRes,
+        maintainDate: txtMainDate,
+        vehicle: {
+            vehicleID: txtMainVehiId
         }
     }
 
@@ -340,12 +404,12 @@ $("#btnSaveMain").click(function (){
     // console.log(JSON.stringify(mainDetails));
 
     $.ajax({
-        method:'POST',
-        url:'http://localhost:8080/carrent/api/v1/maintains',
-        async:true,
-        contentType:'application/json',
-        data:JSON.stringify(mainDetails),
-        success:function (response){
+        method: 'POST',
+        url: 'http://localhost:8080/carrent/api/v1/maintains',
+        async: true,
+        contentType: 'application/json',
+        data: JSON.stringify(mainDetails),
+        success: function (response) {
             console.log(response);
             if (response.message === 'success') {
                 $("#saveMainDialog").show();
@@ -365,7 +429,7 @@ $("#btnSaveMain").click(function (){
                         }
                     });
                 });
-            }else {
+            } else {
                 $("#saveMainDialog").show();
                 //popup the Error message
                 $(function () {
@@ -390,18 +454,18 @@ $("#btnSaveMain").click(function (){
 });
 
 //update vehicle Maintains
-$("#btnUpdateMain").click(function (){
+$("#btnUpdateMain").click(function () {
     let txtMainDate = $("#txtMainDate").val();
     let txtMainRes = $("#txtMainReason").val();
     let txtMainStat = $("#txtMainStatus").val();
     let txtMainVehiId = $("#txtMainVehiId").val();
 
     let mainDetails = {
-        status:txtMainStat,
-        reason:txtMainRes,
-        maintainDate:txtMainDate,
-        vehicle:{
-            vehicleID:txtMainVehiId
+        status: txtMainStat,
+        reason: txtMainRes,
+        maintainDate: txtMainDate,
+        vehicle: {
+            vehicleID: txtMainVehiId
         }
     }
 
@@ -409,12 +473,12 @@ $("#btnUpdateMain").click(function (){
     console.log(JSON.stringify(mainDetails));
 
     $.ajax({
-        method:'PUT',
-        url:'http://localhost:8080/carrent/api/v1/maintains',
-        async:true,
-        contentType:'application/json',
-        data:JSON.stringify(mainDetails),
-        success:function (response){
+        method: 'PUT',
+        url: 'http://localhost:8080/carrent/api/v1/maintains',
+        async: true,
+        contentType: 'application/json',
+        data: JSON.stringify(mainDetails),
+        success: function (response) {
             console.log(response);
             if (response.message === 'success') {
                 $("#updateMainDialog").show();
@@ -434,7 +498,7 @@ $("#btnUpdateMain").click(function (){
                         }
                     });
                 });
-            }else {
+            } else {
                 $("#updateMainDialog").show();
                 //popup the Error message
                 $(function () {
@@ -458,14 +522,14 @@ $("#btnUpdateMain").click(function (){
 });
 
 //delete vehicle Maintains
-$("#btnDeleteMain").click(function (){
+$("#btnDeleteMain").click(function () {
     let id = $("#txtMainID").val();
 
     $.ajax({
-        method:'DELETE',
-        url:'http://localhost:8080/carrent/api/v1/maintains?id='+id,
-        async:true,
-        success:function (response){
+        method: 'DELETE',
+        url: 'http://localhost:8080/carrent/api/v1/maintains?id=' + id,
+        async: true,
+        success: function (response) {
             console.log(response);
 
             if (response.message === 'success') {
@@ -492,15 +556,15 @@ $("#btnDeleteMain").click(function (){
 });
 
 //load vehicle Maintains
-$("#btnMainLoad").click(function (){
+$("#btnMainLoad").click(function () {
 
     $("#maintainstBody").empty();
 
     $.ajax({
-        method:'GET',
-        url:'http://localhost:8080/carrent/api/v1/maintains',
-        async:true,
-        success:function (response){
+        method: 'GET',
+        url: 'http://localhost:8080/carrent/api/v1/maintains',
+        async: true,
+        success: function (response) {
             console.log(response);
             var details = response.data;
             console.log(details);
@@ -516,7 +580,7 @@ $("#btnMainLoad").click(function (){
 
 //driver section crud
 //save driver
-$("#btnSaveDriver").click(function (){
+$("#btnSaveDriver").click(function () {
 
     let txtDriveId = $("#txtDriverId").val();
     let txtDrifname = $("#txtDriverFName").val();
@@ -525,23 +589,23 @@ $("#btnSaveDriver").click(function (){
     let txtDriEmail = $("#txtDriverEmail").val();
 
     let driverDetail = {
-        driveId:txtDriveId,
-        firstName:txtDrifname,
-        lastName:txtDrilname,
-        email:txtDriEmail,
-        contactNumber:txtDriConNumber
+        driveId: txtDriveId,
+        firstName: txtDrifname,
+        lastName: txtDrilname,
+        email: txtDriEmail,
+        contactNumber: txtDriConNumber
     }
 
     // console.log(driverDetail);
     // console.log(JSON.stringify(driverDetail));
 
     $.ajax({
-        method:'POST',
-        url:'http://localhost:8080/carrent/api/v1/driver',
-        async:true,
-        contentType:'application/json',
-        data:JSON.stringify(driverDetail),
-        success:function (response){
+        method: 'POST',
+        url: 'http://localhost:8080/carrent/api/v1/driver',
+        async: true,
+        contentType: 'application/json',
+        data: JSON.stringify(driverDetail),
+        success: function (response) {
             console.log(response);
             if (response.message === 'success') {
                 $("#saveDriverDialog").show();
@@ -569,7 +633,7 @@ $("#btnSaveDriver").click(function (){
 });
 
 //update driver
-$("#btnUpdateDriver").click(function (){
+$("#btnUpdateDriver").click(function () {
 
     let txtDriveId = $("#txtDriverId").val();
     let txtDrifname = $("#txtDriverFName").val();
@@ -578,23 +642,23 @@ $("#btnUpdateDriver").click(function (){
     let txtDriEmail = $("#txtDriverEmail").val();
 
     let driverDetail = {
-        driveId:txtDriveId,
-        firstName:txtDrifname,
-        lastName:txtDrilname,
-        email:txtDriEmail,
-        contactNumber:txtDriConNumber
+        driveId: txtDriveId,
+        firstName: txtDrifname,
+        lastName: txtDrilname,
+        email: txtDriEmail,
+        contactNumber: txtDriConNumber
     }
 
     // console.log(driverDetail);
     // console.log(JSON.stringify(driverDetail));
 
     $.ajax({
-        method:'PUT',
-        url:'http://localhost:8080/carrent/api/v1/driver',
-        async:true,
-        contentType:'application/json',
-        data:JSON.stringify(driverDetail),
-        success:function (response){
+        method: 'PUT',
+        url: 'http://localhost:8080/carrent/api/v1/driver',
+        async: true,
+        contentType: 'application/json',
+        data: JSON.stringify(driverDetail),
+        success: function (response) {
             console.log(response);
             if (response.message === 'success') {
                 $("#updateDriverDialog").show();
@@ -621,14 +685,14 @@ $("#btnUpdateDriver").click(function (){
 });
 
 //delete driver
-$("#btnDeleteDriver").click(function (){
+$("#btnDeleteDriver").click(function () {
     let driveId = $("#txtDriverId").val();
 
     $.ajax({
-        method:'DELETE',
-        url:'http://localhost:8080/carrent/api/v1/driver?id='+driveId,
-        async:true,
-        success:function (response){
+        method: 'DELETE',
+        url: 'http://localhost:8080/carrent/api/v1/driver?id=' + driveId,
+        async: true,
+        success: function (response) {
             console.log(response);
             if (response.message === 'success') {
                 $("#deleteDriverDialog").show();
@@ -654,16 +718,16 @@ $("#btnDeleteDriver").click(function (){
 });
 
 //search driver
-$("#btnSearchDriver").click(function (){
+$("#btnSearchDriver").click(function () {
     let driveId = $("#txtDriverId").val();
 
     $("#driverTableBody").empty();
 
     $.ajax({
-        method:'GET',
-        url:'http://localhost:8080/carrent/api/v1/driver/search/'+driveId,
-        async:true,
-        success:function (response){
+        method: 'GET',
+        url: 'http://localhost:8080/carrent/api/v1/driver/search/' + driveId,
+        async: true,
+        success: function (response) {
             console.log(response);
             console.log(response.data);
             if (response.message === 'success') {
@@ -680,15 +744,15 @@ $("#btnSearchDriver").click(function (){
 });
 
 //load driver
-$("#btnDriverLoad").click(function (){
+$("#btnDriverLoad").click(function () {
 
     $("#driverTableBody").empty();
 
     $.ajax({
-        method:'GET',
-        url:'http://localhost:8080/carrent/api/v1/driver',
-        async:true,
-        success:function (response){
+        method: 'GET',
+        url: 'http://localhost:8080/carrent/api/v1/driver',
+        async: true,
+        success: function (response) {
             console.log(response);
             var details = response.data;
             console.log(details);
@@ -703,11 +767,9 @@ $("#btnDriverLoad").click(function (){
 });
 
 
-$("#btnSignOut").click(function (){
+$("#btnSignOut").click(function () {
     window.location.href = '../directions/signin.html';
 });
-
-
 
 
 function clearVehicleTxtFields() {

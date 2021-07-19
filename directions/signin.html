@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In Page</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/globalcss/style.css">
@@ -31,65 +33,84 @@
 </head>
 <body>
 <!--Navigation Bar-->
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
-    <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Easy Car Rental Pvt.</span>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="../index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Car List
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">General Cars</a></li>
-                        <li><a class="dropdown-item" href="#">Premium Cars</a></li>
-                        <li><a class="dropdown-item" href="#">Luxury Cars</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Sign In</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<!--<nav class="navbar navbar-expand-lg navbar-light navbar-custom">-->
+<!--    <div class="container-fluid">-->
+<!--        <span class="navbar-brand mb-0 h1">Easy Car Rental Pvt.</span>-->
+<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"-->
+<!--                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--            <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link active text-white" aria-current="page" href="../index.html">Home</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link text-white" href="#">Sign In</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
 
-<div id="signInSection">
-    <section class="bg-primary">
-        <div class="login-form">
-            <form class="form-control">
-                <h2 class="text-center">Log in</h2>
-                <div class="form-group mt-1 mb-1">
-                    <input id="txtUserName" type="text" class="form-control mb-3" placeholder="Username" required="required">
+<form>
+    <div class="wrapper">
+        <div class="login">
+            <div class="login-form">
+                <h1 class="login-title">Login</h1>
+                <div class="form-wrapper">
+                    <div class="input-wrapper">
+                        <label class="label" for="txtUserName">User Name</label>
+                        <input class="input" type="text" id="txtUserName" name="username" required autocomplete="off"/>
+                    </div><br>
+                    <div class="input-wrapper">
+                        <label class="label" for="txtPassword">Password</label>
+                        <input class="input" type="password" id="txtPassword" name="password" required/>
+                    </div>
+                    <div class="action-help">
+                        <a class="help-link" href="#">Forgot your password?</a>
+                    </div>
+                    <div class="actions">
+                        <input class="action" type="button" value="Login" id="btnLogin"/>
+                        <div class="signup-action">
+                            Don't have an account? &nbsp <a class="signup-link" href="registration.html">Sign Up</a>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="form-group mt-1 mb-1">
-                    <input id="txtPassword" type="password" class="form-control mb-3" placeholder="Password" required="required">
-                </div>
-                <div class="form-group mt-1 mb-2">
-                    <button id="btnLogin" type="button" class="btn btn-primary">Log in</button>
-                </div>
-                <div class="clearfix">
-                    <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-                    <a href="#" class="pull-right">Forgot Password?</a>
-                </div>
-            </form>
-            <div>
-                <p class="text-center text-black-50"><a href="registration.html">Create an Account</a></p>
+            </div>
+            <div class="login-decoration">
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</form>
+
+<!--<div id="signInSection">-->
+<!--    <section>-->
+<!--        <div class="login-form">-->
+<!--            <form class="form-control">-->
+<!--                <h2 class="text-center">Log in</h2>-->
+<!--                <div class="form-group mt-1 mb-1">-->
+<!--                    <input id="txtUserName" type="text" class="form-control mb-3" placeholder="Username" required="required">-->
+<!--                </div>-->
+<!--                <div class="form-group mt-1 mb-1">-->
+<!--                    <input id="txtPassword" type="password" class="form-control mb-3" placeholder="Password" required="required">-->
+<!--                </div>-->
+<!--                <div class="form-group mt-1 mb-2">-->
+<!--                    <button id="btnLogin" type="button" class="btn btn-primary">Log in</button>-->
+<!--                </div>-->
+<!--                <div class="clearfix">-->
+<!--                    <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>-->
+<!--                    <a href="#" class="pull-right">Forgot Password?</a>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--            <div>-->
+<!--                <p class="text-center text-black-50"><a href="registration.html">Create an Account</a></p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<!--</div>-->
+
 
 
 <script src="../assets/jquery-3.6.0.min.js"></script>

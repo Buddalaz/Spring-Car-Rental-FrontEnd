@@ -5,6 +5,24 @@ $(document).ready(function () {
     var month = ("0" + (now.getMonth() + 1)).slice(-2);
     var today = now.getFullYear() + "-" + (month) + "-" + (day);
     $('#txtDate').val(today);
+
+    // console.log(sessionStorage.getItem("customer"));
+    let obj = JSON.parse(sessionStorage.getItem("customer"));
+
+
+    $('#txtCustId').val(obj.customerID);
+    $('#custName').val(obj.firstName);
+
+    $('#txtCustomerID').val(obj.customerID);
+    $('#txtCustomerFname').val(obj.firstName);
+    $('#txtCustomerLname').val(obj.lastName);
+    $('#txtAddress').val(obj.address);
+    $('#txtCustomerConNumber').val(obj.contactNumber);
+    $('#txtNicNumber').val(obj.nicNumber);
+    $('#txtDriveLicNumber').val(obj.driveLicenseNumber);
+    $('#txtUserName').val(obj.userName);
+    $('#txtPassword').val(obj.password);
+
 });
 
 //save customer order
@@ -143,4 +161,10 @@ $("#btnSaveCustomer").click(function (){
     // showImageContent();
     //
     // hideRegContent();
+});
+
+
+$("#signOut").click(function (){
+    window.location.href = '../directions/signin.html';
+    sessionStorage.removeItem("customer");
 });

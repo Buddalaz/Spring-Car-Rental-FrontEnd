@@ -9,15 +9,23 @@
 <body>
 
 <!--NavBar Section-->
-<nav class="navbar navbar-light bg-primary">
+<nav class="navbar navbar-light bg-primary sticky-top">
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Welcome Customer</span>
+        <span class="navbar-brand mb-0 h1">Welcome<span id="#custName"></span></span>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a id="orderSection" class="nav-link" href="#">Order</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Order</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white px-2" href="#" id="carDropdown" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    Car List
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a id="genCars" class="dropdown-item" href="#">General Cars</a></li>
+                    <li><a id="preCars" class="dropdown-item" href="#">Premium Cars</a></li>
+                    <li><a id="luxCars" class="dropdown-item" href="#">Luxury Cars</a></li>
+                </ul>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white px-2" href="#" id="navbarDropdown" role="button"
@@ -26,7 +34,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a id="profilePageContent" class="dropdown-item" href="#">Profile</a></li>
-                    <li><a id="preCars" class="dropdown-item" href="#">Sign Out</a></li>
+                    <li><a id="signOut" class="dropdown-item" href="#">Sign Out</a></li>
                 </ul>
             </li>
         </ul>
@@ -124,6 +132,474 @@
     </div>
 </div>
 
+<!--Car Details-->
+<!--General Cars-->
+<div id="generalCars">
+    <div class="container-fluid">
+        <div>
+            <div class="container mt-5 mb-5">
+                <div class="d-flex justify-content-center row">
+                    <div class="col-md-10">
+                        <div class="row p-2 bg-white border rounded">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Genaral%20cars/suzuki-alto-car-photos/6xf9hiixfcxvbil645o0fi8m6.jpg">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>Suzuki Alto-Premium-Manual</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>Year 2012</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>For men</span><span
+                                        class="dot"></span><span>Casual<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>For men</span><span
+                                        class="dot"></span><span>Casual<br></span></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button id="productCard1" class="btn btn-primary btn-sm" type="button">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2 bg-white border rounded mt-2">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Genaral%20cars/suzuki-alto-K10-car-photos/maruti-suzuki-alto-k10-car-500x500.jpg">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>Maruti Suzuki Alto K10</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>310</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>For men</span><span
+                                        class="dot"></span><span>Casual<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>For men</span><span
+                                        class="dot"></span><span>Casual<br></span></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2 bg-white border rounded mt-2">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Genaral%20cars/Suzuki-Celerio-car-photo/USE-THIS-RED.png">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>Suzuki Celerio Auto</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>123</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>For men</span><span
+                                        class="dot"></span><span>Casual<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>For men</span><span
+                                        class="dot"></span><span>Casual<br></span></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2 bg-white border rounded mt-2">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Genaral%20cars/perodua(daihatsu)-axia-car-photo/perodua-axia-2019-7070_26.jpg">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>Perodua(Daihatsu) Axia</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>110</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>For men</span><span
+                                        class="dot"></span><span>Casual<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>For men</span><span
+                                        class="dot"></span><span>Casual<br></span></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2 bg-white border rounded">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Genaral%20cars/toyota-prius-caqua-car-photo/image_879201bb57.jpg">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>Toyota Prius C Aqua</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>Year 2012</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>2500</span><span
+                                        class="dot"></span><span>Best finish<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>For men</span><span
+                                        class="dot"></span><span>Casual<br></span></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>For men</span><span
+                                        class="dot"></span><span>Casual<br></span></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Premium Cars-->
+<div id="premiumCars">
+    <div class="container-fluid">
+        <div>
+            <div class="container mt-5 mb-5">
+                <div class="d-flex justify-content-center row">
+                    <div class="col-md-10">
+                        <div class="row p-2 bg-white border rounded">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Premium%20cars/toyota-corolla-axio-NZE141/10101065_201308a.jpg">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>Toyota Corolla Axio/ NZE141</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>Year 2012</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>5500 </span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>100</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>120,330.00</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>2400</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>49.50</span><br></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2 bg-white border rounded mt-2">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Premium%20cars/perodua-bezza-prime-sedan/12007_m.jpg">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>Perodua Bezza Prime Sedan Auto(2017)</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>310</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>5500</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>2500</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>120,330.00</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>2400</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>49.50</span><br></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2 bg-white border rounded mt-2">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Premium%20cars/toyota-allion-nzt260/Allion-2.jpg">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>Toyota Allion NZT 260</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>123</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>5800</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>100</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>155,760.00</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>2400</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>60.00</span><br></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2 bg-white border rounded mt-2">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Premium%20cars/toyota-axio-nkr165/unnamed.png">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>Toyota Axio NKR 165</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>110</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>6000</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>100</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>175,230.00</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>2400</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>65.00</span><br></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Luxury Cars-->
+<div id="luxuryCars">
+    <div class="container-fluid">
+        <div>
+            <div class="container mt-5 mb-5">
+                <div class="d-flex justify-content-center row">
+                    <div class="col-md-10">
+                        <div class="row p-2 bg-white border rounded">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Luxury%20cars/toyota-premio/TOYOTA_PREMIO_T260_20160704_01.jpeg">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>Toyota Premio</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>Year 2012</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>10,000</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>100</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>227,150.00</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>2400</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>85.00</span><br></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2 bg-white border rounded mt-2">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Luxury%20cars/mercedes/1200px-Mercedes-Benz_C118_IMG_2673.jpg">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>Mercedes</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>310</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>18,000</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>100</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>300,000.00</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>2400</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>100.00</span><br></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2 bg-white border rounded mt-2">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="../assets/img/Luxury%20cars/bmw-i8/2020BMC680006_640_07.jpg">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>BMW i8</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>123</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>DailyRate(Rs)</span><span
+                                        class="dot"></span><span>18,000</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km fora Day</span><span
+                                        class="dot"></span><span>100</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Monthly Rate (Rs)</span><span
+                                        class="dot"></span><span>300,000.00</span><br>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1"><span>Free Km for a month</span><span
+                                        class="dot"></span><span>2400</span><br></div>
+                                <div class="mt-1 mb-1 spec-1"><span>Price per Extra Km(Rs)</span><span
+                                        class="dot"></span><span>100.00</span><br></div>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Rs.100,000.00</h4>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--Profile Section-->
 <div class="container border border-dark mt-3 rounded" id="profilePage">
     <form class="row g-3">
@@ -176,16 +652,57 @@
 <script src="../assets/jquery-3.6.0.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="../assets/lib/jQuery-UI/jquery-ui.js"></script>
+<script src="../controller/customerPageController.js"></script>
 <script>
 
     $("#profilePage").hide();
+    $("#generalCars").hide();
+    $("#premiumCars").hide();
+    $("#luxuryCars").hide();
+    $("#dialog").hide();
+    $("#dialog2").hide();
+
+
+    $("#orderSection").click(function (){
+        $("#orderPage").show();
+        $("#profilePage").hide();
+        $("#generalCars").hide();
+        $("#premiumCars").hide();
+        $("#luxuryCars").hide();
+    });
 
 
     $("#profilePageContent").click(function (){
         $("#profilePage").show();
         $("#orderPage").hide();
+        $("#generalCars").hide();
+        $("#premiumCars").hide();
+        $("#luxuryCars").hide();
     });
 
+    $("#genCars").click(function (){
+        $("#generalCars").show();
+        $("#profilePage").hide();
+        $("#orderPage").hide();
+        $("#premiumCars").hide();
+        $("#luxuryCars").hide();
+    });
+
+    $("#preCars").click(function (){
+        $("#premiumCars").show();
+        $("#generalCars").hide();
+        $("#profilePage").hide();
+        $("#orderPage").hide();
+        $("#luxuryCars").hide();
+    });
+
+    $("#luxCars").click(function (){
+        $("#luxuryCars").show();
+        $("#premiumCars").hide();
+        $("#generalCars").hide();
+        $("#profilePage").hide();
+        $("#orderPage").hide();
+    });
 
 
 
